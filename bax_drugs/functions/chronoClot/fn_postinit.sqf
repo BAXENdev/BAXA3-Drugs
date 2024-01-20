@@ -1,0 +1,2 @@
+
+["bax_drugs_chronoclot_fnc_slowHealLocal",bax_drugs_chronoclot_fnc_slowHealLocal] call CBA_fnc_addEventHandler;

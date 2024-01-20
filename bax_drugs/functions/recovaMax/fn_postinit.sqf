@@ -1,0 +1,2 @@
+
+["bax_drugs_recovamax_fnc_fullHealLocal",bax_drugs_recovamax_fnc_fullHealLocal] call CBA_fnc_addEventHandler;

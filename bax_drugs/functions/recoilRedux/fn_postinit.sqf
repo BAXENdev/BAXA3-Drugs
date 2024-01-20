@@ -1,0 +1,4 @@
+
+["bax_drugs_recoilRedux_fnc_recoilBoostLocal",bax_drugs_recoilRedux_fnc_recoilBoostLocal] call CBA_fnc_addEventHandler;
+
+bax_drugs_recoilRedux_boostFactors = 0;
