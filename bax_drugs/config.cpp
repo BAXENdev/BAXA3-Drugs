@@ -306,7 +306,7 @@ class ACE_Medical_Treatment_Actions {
         litter[] = {{"BAX_RecovaMax_Litter"}};
         consumeItem = 1;
 
-        medicRequired = 0;
+        medicRequired = "bax_drugs_recovaMax_allowUse";
         allowSelfTreatment = 1;
         // treatmentTime = 2; // This is handled by autoinjector time setting in ace
 
