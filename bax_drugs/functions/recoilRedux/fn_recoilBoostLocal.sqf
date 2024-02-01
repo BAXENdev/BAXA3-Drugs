@@ -5,7 +5,12 @@ if !(alive _patient) exitWith {
 };
 
 bax_drugs_recoilRedux_boostFactors = bax_drugs_recoilRedux_boostFactors + 1;
-player setUnitRecoilCoefficient (0 max (1 - (bax_drugs_recoilRedux_boostFactors * bax_drugs_recoilRedux_boostPercent)));
+_patient setUnitRecoilCoefficient (0 max (1 - (bax_drugs_recoilRedux_boostFactors * bax_drugs_recoilRedux_boostPercent)));
+
+#ifdef DEBUG
+_msg = format ["RecoilRedux: Coef=%1", _patient];
+LOG(_msg)
+#endif
 
 [
 	{
@@ -16,7 +21,7 @@ player setUnitRecoilCoefficient (0 max (1 - (bax_drugs_recoilRedux_boostFactors 
 		params ["_patient"];
 
 		bax_drugs_recoilRedux_boostFactors = 0;
-		player setUnitRecoilCoefficient 1;
+		_patient setUnitRecoilCoefficient 1;
 	},
 	[_patient],
 	bax_drugs_recoilRedux_duration,

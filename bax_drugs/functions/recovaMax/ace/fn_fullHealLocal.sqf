@@ -1,10 +1,20 @@
 
-params ["_patient"];
+#include "..\..\macros.hpp"
 
-// hint ("Full Heal: Energized kolto applied to " + (name _patient));
+params ["_patient",["_doDelay",true]];
 
-// diag_log format ["SFA Full Heal: Beginning Full Heal on %1",(name _patient)];
-// diag_log format ["Client %1: event full heal at time",player,time];
+if (_doDelay) exitWith {
+    [
+        bax_drugs_recovaMax_fnc_fullHealLocal,
+        [_patient,false],
+        bax_drugs_recovaMax_delay
+    ] call cba_fnc_waitAndExecute;
+};
+
+#ifdef DEBUG
+_msg = format ["RecovaMax Local: Patient=%1", name _patient];
+LOG(_msg)
+#endif
 
 if (!alive _patient) exitWith {};
 
@@ -21,28 +31,24 @@ if (_patient getVariable ["ace_medical_inCardiacArrest", false]) then {
 
 _patient setVariable ["ace_medical_pain", 0, true];
 
-if (bax_drugs_recovamax_regenerateBlood) then {
-    _patient setVariable ["ace_medical_bloodVolume", 6.0 , true];
-};
+_patient setVariable ["ace_medical_bloodVolume", 6.0 , true];
 
-if (bax_drugs_recovamax_healWounds) then {
-    {
-        if (_x != 0) then {
-            [_patient, "ACE_tourniquet"] call ace_common_fnc_addToInventory;
-        };
-    } forEach (_patient getVariable ["ace_medical_tourniquets", [0,0,0,0,0,0]]);
-    _patient setVariable ["ace_medical_tourniquets", [0,0,0,0,0,0], true];
-    _patient setVariable ["ace_medical_treatment_occludedMedications", nil, true];
+{
+    if (_x != 0) then {
+        [_patient, "ACE_tourniquet"] call ace_common_fnc_addToInventory;
+    };
+} forEach (_patient getVariable ["ace_medical_tourniquets", [0,0,0,0,0,0]]);
+_patient setVariable ["ace_medical_tourniquets", [0,0,0,0,0,0], true];
+_patient setVariable ["ace_medical_treatment_occludedMedications", nil, true];
 
 
-    _patient setVariable ["ace_medical_openWounds", createHashMap, true];
-    _patient setVariable ["ace_medical_bandagedWounds", createHashMap, true];
-    _patient setVariable ["ace_medical_stitchedWounds", createHashMap, true];
-    _patient setVariable ["ace_medical_isLimping", false, true];
-    _patient setVariable ["ace_medical_fractures", [0,0,0,0,0,0], true];
+_patient setVariable ["ace_medical_openWounds", createHashMap, true];
+_patient setVariable ["ace_medical_bandagedWounds", createHashMap, true];
+_patient setVariable ["ace_medical_stitchedWounds", createHashMap, true];
+_patient setVariable ["ace_medical_isLimping", false, true];
+_patient setVariable ["ace_medical_fractures", [0,0,0,0,0,0], true];
 
-    [_patient] call ace_medical_status_fnc_updateWoundBloodLoss;
-};
+[_patient] call ace_medical_status_fnc_updateWoundBloodLoss;
 
 
 _patient setVariable ["ace_medical_heartRate", 80, true];
@@ -63,12 +69,9 @@ _patient setVariable ["ace_medical_hemorrhage", 0, true];
 _patient setVariable ["ace_medical_inPain", false, true];
 _patient setVariable ["ace_medical_painSuppress", 0, true];
 
-// Remove all medications aside from EnergizedKolto
-if (bax_drugs_recovamax_removeMedications) then {
-    _medications = _patient getVariable ["ace_medical_medications", []];
-    _medications = _medications select { (_x select 1) isEqualTo "Experiphrine" };
-    _patient setVariable ["ace_medical_medications", _medications, true];
-};
+_medications = _patient getVariable ["ace_medical_medications", []];
+_medications = _medications select { (_x select 1) isEqualTo "Experiphrine" };
+_patient setVariable ["ace_medical_medications", _medications, true];
 
 _patient setVariable ["ace_medical_triageCard", [], true];
 

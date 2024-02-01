@@ -1,0 +1,9 @@
+
+* Added delay to recovaMax
+* Added changable max dosage of EXP2 (includes disabling overdose by setting to 0)
+* Fixed onOverDose
+* Temporarily added logging. Might add toggle in the future
+* Fixed dosage count over long periods of time
+* Adding max speed boost setting
+
+* Note Adrenaphrine is reset by several other functions in ace.... Effect consistency is questionable...

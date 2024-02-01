@@ -1,5 +1,5 @@
 RegenaBoost - stamina regen - blue
-Adrenaline - speed boost - green
+Adrenaphrine - speed boost - green
 
 ChonoClot - Slow heal - purple
 RecovaMax - Full heal - black
@@ -11,7 +11,7 @@ Experiphrine - super drug - black
 
 Dosing
 RegenaBoost     - 2 / 10
-Adrenaline      - 3 / 10
+Adrenaphrine      - 3 / 10
 
 ChonoClot       - 5 / 10
 RecovaMax       - 7 / 10
@@ -20,8 +20,8 @@ SwayFlex        - 1 / 10
 RecoilRedux     - 2 / 10
 
 Experiphrine    - 10 / 10
-- Adrenaline x2 - 6
-- ChronoClot    - 1
-- RecoilRedux x2- 4
-- RegenaBoost x2- 4
-- SwayFlex x2   - 2
+- Adrenaphrine x2 - 6
+- ChronoClot      - 1
+- RecoilRedux x2  - 4
+- RegenaBoost x2  - 4
+- SwayFlex x2     - 2

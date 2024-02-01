@@ -1,7 +1,7 @@
 
-name = "BAX drugs";
+name = "Experimental Drugs";
 author = "BAXENATOR";
 // logo = "logo.paa";
 // picture = "logo.paa";
-overview = "BAX Drugs";
+overview = "Experimental Drugs";
 // logoSmall = "logo.paa";

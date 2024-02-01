@@ -14,7 +14,7 @@ class CfgPatches {
             "BAX_ChronoClot_item",
             "BAX_SwayFlex_item",
             "BAX_RegenaBoost_item",
-            "BAX_Adrenaline_item",
+            "BAX_Adrenaphrine_item",
             "BAX_RecoilRedux_item"
         };
         units[] = {
@@ -22,7 +22,7 @@ class CfgPatches {
             "BAX_ChronoClot_ItemHolder",
             "BAX_SwayFlex_ItemHolder",
             "BAX_RegenaBoost_ItemHolder",
-            "BAX_Adrenaline_ItemHolder",
+            "BAX_Adrenaphrine_ItemHolder",
             "BAX_RecoilRedux_ItemHolder"
         };
         skipWhenMissingDependencies = 1;
@@ -45,7 +45,7 @@ class CfgWeapons {
         descriptionUse = "Full Heal";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 5;
         };
     };
 
@@ -60,7 +60,7 @@ class CfgWeapons {
         descriptionUse = "Slow Heal";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.3;
         };
     };
 
@@ -75,7 +75,7 @@ class CfgWeapons {
         descriptionUse = "Reduce Weapon Sway";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.3;
         };
     };
 
@@ -90,22 +90,22 @@ class CfgWeapons {
         descriptionUse = "Increase Stamina Regen";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.3;
         };
     };
 
-    class BAX_Adrenaline_item: ACE_ItemCore {
+    class BAX_Adrenaphrine_item: ACE_ItemCore {
         scope = 2;
         author = "BAXENATOR";
-        model = "\bax_drugs\assets\models\adrenaline.p3d";
+        model = "\bax_drugs\assets\models\adrenaphrine.p3d";
         // model = "\z\ace\addons\medical_treatment\data\morphine.p3d";
-        picture = "\bax_drugs\assets\pictures\adrenaline_ca.paa";
-        displayName = "Adrenaline";
+        picture = "\bax_drugs\assets\pictures\adrenaphrine_ca.paa";
+        displayName = "Adrenaphrine";
         descriptionShort = "Increase Movement Speed";
         descriptionUse = "Increase Movement Speed";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.3;
         };
     };
 
@@ -120,7 +120,7 @@ class CfgWeapons {
         descriptionUse = "Increase Recoil Control";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.3;
         };
     };
 
@@ -135,15 +135,14 @@ class CfgWeapons {
         descriptionUse = "Experimental Super Drug";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 10;
+            mass = 5;
         };
     };
 };
 
-class CfgVehicles
-{
+class CfgVehicles {
+    // Ground item objects
     class Item_Base_F;
-
     class BAX_RecovaMax_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
@@ -162,7 +161,6 @@ class CfgVehicles
             };
         };
     };
-
     class BAX_ChronoClot_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
@@ -181,7 +179,6 @@ class CfgVehicles
             };
         };
     };
-
     class BAX_SwayFlex_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
@@ -200,7 +197,6 @@ class CfgVehicles
             };
         };
     };
-
     class BAX_RegenaBoost_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
@@ -219,11 +215,10 @@ class CfgVehicles
             };
         };
     };
-
-    class BAX_Adrenaline_ItemHolder: Item_Base_F {
+    class BAX_Adrenaphrine_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
-        displayName = "Adrenaline";
+        displayName = "Adrenaphrine";
         author = "BAXENATOR";
         // editorCategory = "EdCat_Equipment";
         // editorSubcategory = "EdSubcat_InventoryItems";
@@ -233,12 +228,11 @@ class CfgVehicles
         {
             class MyACEItem
             {
-                name = "BAX_Adrenaline_item";
+                name = "BAX_Adrenaphrine_item";
                 count = 1;
             };
         };
     };
-
     class BAX_RecoilRedux_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
@@ -257,7 +251,6 @@ class CfgVehicles
             };
         };
     };
-
     class BAX_Experiphrine_ItemHolder: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
@@ -276,6 +269,30 @@ class CfgVehicles
             };
         };
     };
+
+    // Litter items
+    class ACE_MedicalLitterBase;
+    class BAX_RecovaMax_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\recovaMax_litter.p3d";
+    };
+    class BAX_ChronoClot_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\chronoClot_litter.p3d";
+    };
+    class BAX_SwayFlex_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\swayFlex_litter.p3d";
+    };
+    class BAX_RegenaBoost_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\regenaBoost_litter.p3d";
+    };
+    class BAX_Adrenaphrine_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\adrenaphrine_litter.p3d";
+    };
+    class BAX_RecoilRedux_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\recoilRedux_litter.p3d";
+    };
+    class BAX_Experiphrine_Litter: ACE_MedicalLitterBase {
+        model = "\bax_drugs\assets\models\Experiphrine_litter.p3d";
+    };
 };
 
 class ACE_Medical_Treatment_Actions {
@@ -286,6 +303,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = "Injecting RecovaMax";
 
         items[] = {"BAX_RecovaMax_item"};
+        litter[] = {{"BAX_RecovaMax_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -301,6 +319,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = "Injecting ChronoClot";
 
         items[] = {"BAX_ChronoClot_item"};
+        litter[] = {{"BAX_ChronoClot_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -316,6 +335,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = "Injecting SwayFlex";
 
         items[] = {"BAX_SwayFlex_item"};
+        litter[] = {{"BAX_SwayFlex_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -323,7 +343,7 @@ class ACE_Medical_Treatment_Actions {
         // treatmentTime = 2; // This is handled by autoinjector time setting in ace
 
         condition = "";
-        callbackSuccess = "bax_drugs_swayflex_fnc_reflexHeal";
+        callbackSuccess = "bax_drugs_swayflex_fnc_swayHeal";
     };
 
     class RegenaBoost: Morphine {
@@ -331,6 +351,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = "Injecting RegenaBoost";
 
         items[] = {"BAX_RegenaBoost_item"};
+        litter[] = {{"BAX_RegenaBoost_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -341,11 +362,12 @@ class ACE_Medical_Treatment_Actions {
         callbackSuccess = "bax_drugs_regenaboost_fnc_increaseRegen";
     };
 
-    class Adrenaline: Morphine {
-        displayName = "Inject Adrenaline";
-        displayNameProgress = "Injecting Adrenaline";
+    class Adrenaphrine: Morphine {
+        displayName = "Inject Adrenaphrine";
+        displayNameProgress = "Injecting Adrenaphrine";
 
-        items[] = {"BAX_Adrenaline_item"};
+        items[] = {"BAX_Adrenaphrine_item"};
+        litter[] = {{"BAX_Adrenaphrine_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -353,7 +375,7 @@ class ACE_Medical_Treatment_Actions {
         // treatmentTime = 2; // This is handled by autoinjector time setting in ace
 
         condition = "";
-        callbackSuccess = "bax_drugs_adrenaline_fnc_speedBoost";
+        callbackSuccess = "bax_drugs_adrenaphrine_fnc_speedBoost";
     };
 
     class RecoilRedux: Morphine {
@@ -361,6 +383,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = "Injecting RecoilRedux";
 
         items[] = {"BAX_RecoilRedux_item"};
+        litter[] = {{"BAX_RecoilRedux_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -376,6 +399,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = "Experiphrine";
 
         items[] = {"BAX_Experiphrine_item"};
+        litter[] = {{"BAX_Experiphrine_Litter"}};
         consumeItem = 1;
 
         medicRequired = 0;
@@ -384,6 +408,19 @@ class ACE_Medical_Treatment_Actions {
 
         condition = "";
         callbackSuccess = "bax_drugs_experiphrine_fnc_superBoost";
+    };
+
+    class CheckPulse;
+    class CheckExperiphrine: CheckPulse {
+        displayName = "Check EXP2 Levels";
+        displayNameProgress = "Checking EXP2 Levels";
+        
+        medicRequired = "bax_drugs_experiphrine_checkLevel != 0";
+        condition = "ace_medical_treatment_advancedMedication";
+
+        callbackSuccess = "bax_drugs_experiphrine_fnc_checkExperiphrine";
+        animationMedicProne = "";
+        animationMedicSelfProne = "";
     };
 };
 
@@ -402,9 +439,7 @@ class ace_medical_treatment {
 
     class Medication {
         class Experiphrine {
-            timeInSystem = 3600;
-            maxDose = 11;
-            timeTillMaxEffect = 900;
+            onOverDose = "bax_drugs_experiphrine_fnc_onOverDose"
         };
     };
 };
@@ -414,14 +449,14 @@ class CfgFunctions {
     #include "\bax_drugs\functions\recovamax\categories.hpp"
     #include "\bax_drugs\functions\swayflex\categories.hpp"
     #include "\bax_drugs\functions\regenaBoost\categories.hpp"
-    #include "\bax_drugs\functions\adrenaline\categories.hpp"
+    #include "\bax_drugs\functions\adrenaphrine\categories.hpp"
     #include "\bax_drugs\functions\recoilRedux\categories.hpp"
     #include "\bax_drugs\functions\experiphrine\categories.hpp"
 };
 
 class Extended_PreInit_EventHandlers {
-    class Adrenaline {
-        init = "call bax_drugs_adrenaline_fnc_preinit";
+    class Adrenaphrine {
+        init = "call bax_drugs_adrenaphrine_fnc_preinit";
     };
 
     class ChronoClot {
@@ -450,8 +485,8 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_PostInit_EventHandlers {
-    class Adrenaline {
-        init = "call bax_drugs_adrenaline_fnc_postinit";
+    class Adrenaphrine {
+        init = "call bax_drugs_adrenaphrine_fnc_postinit";
     };
 
     class ChronoClot {
